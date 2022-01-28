@@ -9,55 +9,77 @@ public class Main {
 
     public static void main(String[] args) {
 
-        Curso curso1 = new Curso();
-        curso1.setTitulo("curso java");
-        curso1.setDescricao("descricao curso java");
-        curso1.setCargaHoraria(8);
+        //Instanciando os cursos
+        Curso curso1 = new Curso("Curso Java", "Aprendendo os conceitos de POO.", 8);
+        Curso curso2 = new Curso("Curso Javascript", "Aprendendo o básico de Javascript.", 4);
 
-        Curso curso2 = new Curso();
-        curso2.setTitulo("curso javascript");
-        curso2.setDescricao("descrição curso javascript");
-        curso2.setCargaHoraria(4);
+        //Instanciando as mentorias
+        Mentoria mentoria = new Mentoria("Mentoria de Java", "Tirando dúvidas sobre Java", LocalDate.now());
+        Mentoria mentoria2 = new Mentoria("Mentoria de Javascript", "Tirando dúvidas sobre Javascript", LocalDate.now());
 
-        Mentoria mentoria = new Mentoria();
-        mentoria.setTitulo("mentoria de java");
-        mentoria.setDescricao("descrição mentoria java");
-        mentoria.setData(LocalDate.now());
+        //Instanciando o bootcamp
+        Bootcamp bootcamp = new Bootcamp("Bootcamp Java Developer", "GFT Start Java.");
 
-       /* System.out.println(curso1);
-        System.out.println(curso2);
-        System.out.println(mentoria);*/
-
-        Bootcamp bootcamp = new Bootcamp();
-        bootcamp.setNome("Bootcamp Java Developer");
-        bootcamp.setDescricao("Descrição");
+        //adicionando os cursos e as mentorias ao bootcamp
         bootcamp.getConteudos().add(curso1);
         bootcamp.getConteudos().add(curso2);
         bootcamp.getConteudos().add(mentoria);
+        bootcamp.getConteudos().add(mentoria2);
 
-        Dev joao = new Dev();
-        joao.setNome("João");
+        //Instanciando Dev Joao
+        Dev joao = new Dev("João");
+
+        //Inscrevendo Joao no bootcamp
         joao.inscreverBootcamp(bootcamp);
+
+        //Printando conteudos incritos ao incio do bootcamp
         System.out.println("Conteúdos Inscritos João: " + joao.getConteudosInscritos());
+        //Printando nivel do Joao antes de progredir
+        System.out.println("Nível: " + joao.getNivel());
+        System.out.println("XP para o próximo nível: " + joao.getXpAtual() + "/" + joao.getXpRequerido());
+        System.out.println("XP Total: " + joao.calcularTotalXp());
+
+        //Progredindo no bootcamp finalizando 1 conteudo
         joao.progredir();
-        System.out.println("***");
+
+        //Printando conteudos incritos e concluidos
+        System.out.println("-----------------");
         System.out.println("Conteúdos Inscritos João: " + joao.getConteudosInscritos());
         System.out.println("Conteúdos Concluídos João: " + joao.getConteudosConcluidos());
-        System.out.println("XP: " + joao.calcularTotalXp());
+        //Printando novo progresso de nivel e xp após concluir conteudos
+        System.out.println("Nível: " + joao.getNivel());
+        System.out.println("XP para o próximo nível: " + joao.getXpAtual() + "/" + joao.getXpRequerido());
+        System.out.println("XP Total: " + joao.calcularTotalXp());
 
-        System.out.println("*****************");
+        System.out.println("*************************************************");
 
-        Dev paulo = new Dev();
-        paulo.setNome("Paulo");
+        //Instanciando Dev Paulo
+        Dev paulo = new Dev("Paulo");
+
+        //Inscrevendo Paulo no bootcamp
         paulo.inscreverBootcamp(bootcamp);
+
+        //Printando conteudos incritos ao incio do bootcamp
         System.out.println("Conteúdos Inscritos Paulo: " + paulo.getConteudosInscritos());
+        //Printando nivel do Paulo antes de progredir
+        System.out.println("Nível: " + paulo.getNivel());
+        System.out.println("XP para o próximo nível: " + paulo.getXpAtual() + "/" + paulo.getXpRequerido());
+        System.out.println("XP Total: " + paulo.calcularTotalXp());
+
+        //Progredindo no bootcamp finalizando 4 conteudos
         paulo.progredir();
         paulo.progredir();
         paulo.progredir();
-        System.out.println("***");
+        paulo.progredir();
+
+        //Printando conteudos incritos e concluidos
+        System.out.println("-----------------");
         System.out.println("Conteúdos Inscritos Paulo: " + paulo.getConteudosInscritos());
         System.out.println("Conteúdos Concluídos Paulo: " + paulo.getConteudosConcluidos());
-        System.out.println("XP: " + paulo.calcularTotalXp());
+        //Printando novo progresso de nivel e xp após concluir conteudos
+        System.out.println("Nível: " + paulo.getNivel());
+        System.out.println("XP para o próximo nível: " + paulo.getXpAtual() + "/" + paulo.getXpRequerido());
+        System.out.println("XP Total: " + paulo.calcularTotalXp());
     }
 
 }
